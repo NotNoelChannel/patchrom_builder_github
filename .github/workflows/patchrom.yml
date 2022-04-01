@@ -39,5 +39,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: rejects
-          path: /home/runner/patchrom/j110h/temp/rejects/
+          path: /home/runner/patchrom/j110h/temp/reject/
 
