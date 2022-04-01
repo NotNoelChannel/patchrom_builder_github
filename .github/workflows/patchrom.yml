@@ -28,17 +28,16 @@ jobs:
           python3 ~/bin/repo init --depth=1 -u https://github.com/TriDiscord/patchrom.git -b miui-7 -m android-4.4.4.xml
           python3 ~/bin/repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
 
-      - name: Building MIUI
+      - name: Building MIUI Patches
         run: |
           cd ~/patchrom
           source build/envsetup.sh
           cd ~/patchrom/j110h
           make firstpatch
-          make fullota
 
-      - name: Uploading Builds
+      - name: Uploading Rejects
         uses: actions/upload-artifact@v2
         with:
-          name: twrp
-          path: /home/runner/patchrom/j110h/*.zip
+          name: rejects
+          path: /home/runner/patchrom/j110h/temp/rejects/
 
