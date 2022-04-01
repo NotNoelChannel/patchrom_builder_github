@@ -34,10 +34,13 @@ jobs:
           source build/envsetup.sh
           cd ~/patchrom/j110h
           make firstpatch
+      
+      - name: DERP = List rejects
+        run: ls /home/runner/patchrom/j110h/temp/reject/
 
       - name: Uploading Rejects
         uses: actions/upload-artifact@v2
         with:
-          name: rejects
-          path: /home/runner/patchrom/j110h/temp/reject/
+          name: reject
+          path: /home/runner/patchrom/j110h/temp/reject/*
 
